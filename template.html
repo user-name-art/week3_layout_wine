@@ -114,32 +114,32 @@
           </div>
         </div>
         
-          {% for wine_type, wine_list_by_type in wine_data.items() %}
+        {% for wine_type, wine_list_by_type in wine_data.items() %}
           <div class="col-12 section-title text-center mb-5">
-          <h2 class="d-block">{{ wine_type }}</h2>
+            <h2 class="d-block">{{ wine_type }}</h2>
           </div>
-            <div class="row">
-              {% for wine in wine_list_by_type %}
-                <div class="col-lg-4 mb-5 col-md-6">
-                  <div class="wine_v_1 text-center pb-4 pt-5">
-                    <img src="images/{{wine.Картинка}}" alt="Image" class="img-fluid">
-                      {% if wine.Акция == 'Выгодное предложение' %}
-                      <img src="assets/profitable.png" style="width:10rem;height: 10rem;position:absolute;right: -20px;top: -20px;"><br/>
+          <div class="row">
+            {% for wine in wine_list_by_type %}
+              <div class="col-lg-4 mb-5 col-md-6">
+                <div class="wine_v_1 text-center pb-4 pt-5">
+                  <img src="images/{{wine.Картинка}}" alt="Image" class="img-fluid">
+                  {% if wine.Акция == 'Выгодное предложение' %}
+                    <img src="assets/profitable.png" style="width:10rem;height: 10rem;position:absolute;right: -20px;top: -20px;"><br/>
+                  {% endif %}
+                  <div>
+                    <h3 class="heading mt-3 mb-3 text-dark">{{ wine.Название }}</h3>
+                    <p>
+                      {% if wine.Сорт %}
+                        Сорт винограда - {{ wine.Сорт }}<br/>
                       {% endif %}
-                      <div>
-                        <h3 class="heading mt-3 mb-3 text-dark">{{ wine.Название }}</h3>
-                          <p>
-                            {% if wine.Сорт %}
-                              Сорт винограда - {{ wine.Сорт }}<br/>
-                            {% endif %}
-                          <span class="price">{{ wine.Цена }} р.</span>
-                        </p>
-                      </div>
+                      <span class="price">{{ wine.Цена }} р.</span>
+                    </p>
                   </div>
                 </div>
-                {% endfor %}
-            </div>
-          {% endfor %}
+              </div>
+            {% endfor %}
+          </div>
+        {% endfor %}
 
       </div>
     </div>
@@ -172,7 +172,7 @@
             <img src="assets/person_2.jpg" alt="Фото">
             <p>&ldquo;Вино столовое полусладкое белое Кокур - неплохое вино, молодое, невыдержанное. Особенности технологии его производства и дают, очевидно, такой вкус.
               Вкус - довольно простой, несложный, но приятный. Невыдержанное вино в чем-то близко к молодому виноградному соку.
-              Пьется легко, вкус приятно- округлый, нежный.&rdquo;</p>
+              Пьется легко, вкус приятно-округлый, нежный.&rdquo;</p>
             <p class="small text-primary">&mdash; Михаил Яковлев</p>
           </blockquote>
           <blockquote class="testimony">

@@ -2,14 +2,15 @@ import datetime
 import pandas
 import collections
 
-import os
-from dotenv import load_dotenv
-
 
 def get_winary_age():
     winery_founded_days = datetime.date.today() - datetime.date(year=1920, month=1, day=1)
     winery_age = winery_founded_days.days // 365
 
+    return winery_age
+    
+
+def get_correct_winery_age(winery_age):
     template_age = 'лет'
 
     if (2 <= winery_age % 10 <= 4) and not (11<= winery_age <=14):
@@ -20,10 +21,8 @@ def get_winary_age():
     return f'{winery_age} {template_age}'
 
 
-def get_wines_from_file():
-    load_dotenv()
-
-    excel_data_df = pandas.read_excel(os.environ["WINE_FILENAME"], keep_default_na=False)
+def get_wines_from_file(filename):
+    excel_data_df = pandas.read_excel(filename, keep_default_na=False)
     column_names = excel_data_df.columns.ravel()
     categories = excel_data_df[column_names[0]].tolist()
     wines = excel_data_df.to_dict(orient='records')
