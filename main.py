@@ -8,6 +8,14 @@ from get_winery_and_product_data import get_winary_age, get_wines_from_file, get
 
 
 def main():
+    load_dotenv()
+    env = Environment(
+        loader=FileSystemLoader('.'),
+        autoescape=select_autoescape(['html', 'xml'])
+    )
+
+    filename = os.environ["WINE_FILENAME"]
+
     wine_data = get_wines_from_file(filename)
     winery_age = get_winary_age()
     correct_winery_age = get_correct_winery_age(winery_age)
@@ -27,12 +35,4 @@ def main():
 
 
 if __name__ == '__main__':
-    load_dotenv()
-    env = Environment(
-        loader=FileSystemLoader('.'),
-        autoescape=select_autoescape(['html', 'xml'])
-    )
-
-    filename = os.environ["WINE_FILENAME"]
-
     main()
