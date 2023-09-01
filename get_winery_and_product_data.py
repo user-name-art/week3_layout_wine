@@ -13,9 +13,9 @@ def get_winary_age():
 def get_correct_winery_age(winery_age):
     template_age = 'лет'
 
-    if (2 <= winery_age % 10 <= 4) and not (11<= winery_age <=14):
+    if (2 <= winery_age % 10 <= 4) and not (11 <= winery_age % 100 <= 14):
         template_age = 'года'
-    elif (winery_age % 10 == 1) and not (winery_age == 11):
+    elif (winery_age % 10 == 1) and not (winery_age % 100 == 11):
         template_age = 'год'
 
     return f'{winery_age} {template_age}'
